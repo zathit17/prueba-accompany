@@ -1,0 +1,349 @@
+/* --- Variables & Tokens --- */
+:root {
+    /* Brand Colors (Provided) */
+    --color-brand-blue: #010067;
+    --color-brand-gray: #515050;
+    --color-brand-orange: #FF6701;
+    --color-brand-white: #FAFAFA;
+
+    /* Generated Scale: Blue (Backgrounds/Primary) */
+    --blue-900: #01004d;
+    /* Darker shade of brand blue */
+    --blue-800: #010067;
+    /* [Base] */
+    --blue-700: #1a1a7a;
+    --blue-600: #33338d;
+    --blue-500: #4d4da0;
+
+    /* Generated Scale: Orange (Accents) */
+    --orange-600: #cc5200;
+    --orange-500: #FF6701;
+    /* [Base] */
+    --orange-400: #ff8533;
+    --orange-300: #ffa366;
+
+    /* Generated Scale: Neutral (Text/UI) */
+    --gray-900: #1f1f1f;
+    --gray-700: #515050;
+    /* [Base] */
+    --gray-500: #808080;
+    --gray-300: #d1d1d1;
+    --gray-100: #FAFAFA;
+    /* [Base] */
+
+    /* Semantic Variables */
+    --bg-color: var(--blue-900);
+    /* Deep rich background */
+    --surface-color: var(--blue-800);
+    --surface-color-light: var(--blue-700);
+
+    --text-primary: var(--brand-white);
+    --text-secondary: #b3b3cc;
+    /* Custom gray-blue for better contrast on dark blue */
+
+    --accent-color: var(--orange-500);
+    --accent-glow: rgba(255, 103, 1, 0.4);
+
+    --gradient-main: linear-gradient(135deg, var(--blue-700) 0%, var(--orange-500) 100%);
+    --gradient-text: linear-gradient(to right, #fff 20%, var(--orange-500) 100%);
+
+    /* Typography */
+    --font-heading: "Nunito Sans", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 32px;
+}
+
+/* --- Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-weight: 300;
+    /* Modern thin look */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-variation-settings: "wdth" 100;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* --- Utilities --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.gradient-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    /* Extra bold for gradient text */
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    background: var(--orange-400);
+    box-shadow: 0 6px 25px var(--accent-glow);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: transparent;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-primary);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* --- Header --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-sm) 0;
+    background: rgba(1, 0, 103, 0.85);
+    /* Slightly transparent Brand Blue */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--color-brand-white);
+    letter-spacing: -0.02em;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.nav-links a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-300);
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+#menu-toggle {
+    display: none;
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+#menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: var(--text-primary);
+    transition: 0.3s;
+}
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 80px;
+    background: radial-gradient(circle at 80% 20%, var(--surface-color-light) 0%, var(--bg-color) 60%);
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    max-width: 550px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+/* Aesthetic Elements */
+.glowing-orb {
+    width: 350px;
+    height: 350px;
+    background: var(--gradient-main);
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.6;
+    animation: pulse 8s ease-in-out infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+/* --- Footer --- */
+.footer {
+    padding: var(--spacing-md) 0;
+    text-align: center;
+    color: var(--gray-500);
+    border-top: 1px solid var(--surface-color-light);
+    background: var(--blue-900);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--blue-800);
+        padding: var(--spacing-md);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    #menu-toggle {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding-bottom: var(--spacing-lg);
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        width: 100%;
+        min-height: 300px;
+        order: -1;
+        /* Move visual to top on mobile sometimes looks better, or keep bottom */
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Title</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito+Sans:ital,opsz,wdth,wght@0,6..12,75..125,200..1000;1,6..12,75..125,200..1000&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/style.css"> <!-- Global styles -->
+    <link rel="stylesheet" href="style.css"> <!-- Local styles -->
+</head>
+
+<body class="screen-body">
+    <div class="screen-container">
+        <header class="screen-header">
+            <a href="../index.html" class="back-link">&larr; Volver</a>
+            <h1>Vista de Pantalla</h1>
+        </header>
+
+        <main class="screen-content">
+            <div class="card">
+                <h2>Panel Principal</h2>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <span class="stat-val">24k</span>
+                        <span class="stat-label">Usuarios</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-val">85%</span>
+                        <span class="stat-label">Actividad</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-val">120+</span>
+                        <span class="stat-label">Proyectos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card interactive-demo">
+                <h2>Interacción</h2>
+                <button id="screen-action-btn" class="btn-primary">Ejecutar Acción</button>
+                <div id="output-log" class="log-box">Esperando acción...</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

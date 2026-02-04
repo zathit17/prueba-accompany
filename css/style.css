@@ -6,46 +6,42 @@
     --color-brand-orange: #FF6701;
     --color-brand-white: #FAFAFA;
 
-    /* Generated Scale: Blue (Backgrounds/Primary) */
+    /* Generated Scale: Blue (Text & Highlights) */
     --blue-900: #01004d;
-    /* Darker shade of brand blue */
     --blue-800: #010067;
-    /* [Base] */
+    /* [Brand Blue] */
     --blue-700: #1a1a7a;
-    --blue-600: #33338d;
     --blue-500: #4d4da0;
 
     /* Generated Scale: Orange (Accents) */
     --orange-600: #cc5200;
     --orange-500: #FF6701;
-    /* [Base] */
+    /* [Brand Orange] */
     --orange-400: #ff8533;
-    --orange-300: #ffa366;
 
-    /* Generated Scale: Neutral (Text/UI) */
+    /* Generated Scale: Neutral (Light Backgrounds) */
     --gray-900: #1f1f1f;
     --gray-700: #515050;
-    /* [Base] */
+    /* [Brand Gray] */
     --gray-500: #808080;
-    --gray-300: #d1d1d1;
+    --gray-300: #e0e0e0;
     --gray-100: #FAFAFA;
-    /* [Base] */
+    /* [Brand White] */
 
-    /* Semantic Variables */
-    --bg-color: var(--blue-900);
-    /* Deep rich background */
-    --surface-color: var(--blue-800);
-    --surface-color-light: var(--blue-700);
+    /* Semantic Variables - Light Mode */
+    --bg-color: #FFFFFF;
+    --surface-color: var(--gray-100);
+    --surface-color-contrast: var(--blue-800);
 
-    --text-primary: var(--brand-white);
-    --text-secondary: #b3b3cc;
-    /* Custom gray-blue for better contrast on dark blue */
+    --text-primary: var(--blue-900);
+    /* Dark text */
+    --text-secondary: var(--gray-700);
 
     --accent-color: var(--orange-500);
-    --accent-glow: rgba(255, 103, 1, 0.4);
+    --accent-glow: rgba(255, 103, 1, 0.25);
 
-    --gradient-main: linear-gradient(135deg, var(--blue-700) 0%, var(--orange-500) 100%);
-    --gradient-text: linear-gradient(to right, #fff 20%, var(--orange-500) 100%);
+    --gradient-main: linear-gradient(135deg, var(--blue-800) 0%, var(--blue-600) 100%);
+    --gradient-text: linear-gradient(135deg, var(--blue-800) 0%, var(--orange-500) 100%);
 
     /* Typography */
     --font-heading: "Nunito Sans", sans-serif;
@@ -74,8 +70,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    font-weight: 300;
-    /* Modern thin look */
+    font-weight: 400;
 }
 
 h1,
@@ -117,7 +112,6 @@ img {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 800;
-    /* Extra bold for gradient text */
 }
 
 .btn-primary {
@@ -144,8 +138,8 @@ img {
     display: inline-block;
     padding: 12px 28px;
     background: transparent;
-    border: 1px solid var(--text-secondary);
-    color: var(--text-primary);
+    border: 1px solid var(--blue-800);
+    color: var(--blue-800);
     border-radius: var(--radius-sm);
     font-family: var(--font-heading);
     font-weight: 600;
@@ -154,8 +148,8 @@ img {
 }
 
 .btn-secondary:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
+    background: var(--blue-800);
+    color: white;
 }
 
 /* --- Header --- */
@@ -165,10 +159,10 @@ img {
     left: 0;
     width: 100%;
     padding: var(--spacing-sm) 0;
-    background: rgba(1, 0, 103, 0.85);
-    /* Slightly transparent Brand Blue */
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Very subtle light border */
     z-index: 1000;
 }
 
@@ -179,21 +173,35 @@ img {
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--color-brand-white);
-    letter-spacing: -0.02em;
+    display: block;
+    width: 180px;
+    height: auto;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Original Logo Colors - No Filter */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover img {
+    opacity: 0.9;
 }
 
 .nav-links {
     display: flex;
-    gap: var(--spacing-md);
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .nav-links a {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--gray-300);
+    color: var(--blue-800);
+    /* Dark Blue Links */
 }
 
 .nav-links a:hover {
@@ -217,7 +225,8 @@ img {
     width: 100%;
     height: 3px;
     border-radius: 2px;
-    background-color: var(--text-primary);
+    background-color: var(--blue-800);
+    /* Dark Blue toggle */
     transition: 0.3s;
 }
 
@@ -228,7 +237,8 @@ img {
     align-items: center;
     position: relative;
     padding-top: 80px;
-    background: radial-gradient(circle at 80% 20%, var(--surface-color-light) 0%, var(--bg-color) 60%);
+    background: white;
+    /* Pure white as requested */
 }
 
 .hero-content {
@@ -241,6 +251,7 @@ img {
     line-height: 1.1;
     margin-bottom: var(--spacing-sm);
     letter-spacing: -0.03em;
+    color: var(--blue-900);
 }
 
 .hero-subtitle {
@@ -268,28 +279,27 @@ img {
 .glowing-orb {
     width: 350px;
     height: 350px;
-    background: var(--gradient-main);
+    /* Subtle gradient for light mode background */
+    background: linear-gradient(135deg, rgba(255, 103, 1, 0.1) 0%, rgba(1, 0, 103, 0.05) 100%);
     border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.6;
-    animation: pulse 8s ease-in-out infinite;
+    filter: blur(80px);
+    opacity: 0.8;
+    animation: drift 8s ease-in-out infinite;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-@keyframes pulse {
+@keyframes drift {
 
     0%,
     100% {
         transform: translate(-50%, -50%) scale(1);
-        opacity: 0.5;
     }
 
     50% {
         transform: translate(-50%, -50%) scale(1.1);
-        opacity: 0.7;
     }
 }
 
@@ -297,9 +307,10 @@ img {
 .footer {
     padding: var(--spacing-md) 0;
     text-align: center;
-    color: var(--gray-500);
-    border-top: 1px solid var(--surface-color-light);
+    color: white;
+    border-top: none;
     background: var(--blue-900);
+    /* Dark footer looks good on light sites usually, or could be light */
 }
 
 /* --- Responsive Design --- */
@@ -311,10 +322,18 @@ img {
         top: 100%;
         left: 0;
         width: 100%;
-        background: var(--blue-800);
+        background: white;
+        /* White mobile menu */
         padding: var(--spacing-md);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links a {
+        color: var(--blue-800);
+        padding: 10px;
+        display: block;
     }
 
     .nav-links.active {
@@ -344,6 +363,5 @@ img {
         width: 100%;
         min-height: 300px;
         order: -1;
-        /* Move visual to top on mobile sometimes looks better, or keep bottom */
     }
 }

@@ -256,14 +256,22 @@ img {
 
 .hero-title {
     font-size: 5rem;
-    /* Reduced slightly to ensure 2 lines */
     line-height: 1.05;
     margin-bottom: var(--spacing-sm);
     letter-spacing: -0.03em;
     color: var(--blue-900);
     max-width: 100%;
-    /* Allow full width to prevent early wrapping */
     font-weight: 900;
+    min-height: 2.2em;
+    /* Reserves space for 2 lines to prevent jumping */
+    display: flex;
+    /* Flex to handle cursor alignment if needed, or stick to block */
+    flex-direction: column;
+    /* Stacks lines naturally if we used separate elements, but we use <br> */
+    justify-content: center;
+    /* Center vertically if single line, but we have 2 fixed */
+    display: block;
+    /* Revert to block for standard text flow */
 }
 
 .hero-subtitle {

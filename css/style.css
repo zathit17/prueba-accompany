@@ -118,7 +118,8 @@ img {
     display: inline-flex;
     align-items: center;
     padding: 16px 32px;
-    background: #000000;
+    background: var(--blue-800);
+    /* Brand Blue */
     color: white;
     border-radius: 8px;
     font-family: var(--font-heading);
@@ -134,7 +135,8 @@ img {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    background: var(--blue-900);
+    background: var(--orange-500);
+    /* Orange on hover */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 

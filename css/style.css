@@ -362,6 +362,38 @@ img {
     }
 }
 
+/* --- General Sections --- */
+.section-padding {
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+}
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    /* Center content */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--blue-900);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.section-text {
+    font-size: 1.125rem;
+    color: var(--gray-700);
+    line-height: 1.8;
+}
+
+.section-text strong {
+    color: var(--blue-900);
+    /* Dark bolder color for emphasis */
+    font-weight: 700;
+}
+
 /* --- Footer --- */
 .footer {
     padding: var(--spacing-md) 0;

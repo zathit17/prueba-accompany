@@ -108,5 +108,47 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(type, 500);
     }
 
+    // --- Advantages Section Glow & Color Shift ---
+    const advSection = document.getElementById('advantages');
+    const advGlow = document.querySelector('.advantages-mouse-glow');
+
+    if (advSection && advGlow) {
+        advSection.addEventListener('mousemove', (e) => {
+            const rect = advSection.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Calculate percentage of Y position for color shift (0 = top, 1 = bottom)
+            const height = rect.height;
+            const percentY = Math.min(Math.max(y / height, 0), 1);
+
+            // Soft Blue (Top): rgba(147, 197, 253, 0.4) -> RGB: 147, 197, 253
+            // Soft Orange (Bottom): rgba(253, 186, 116, 0.4) -> RGB: 253, 186, 116
+
+            const startR = 147, startG = 197, startB = 253;
+            const endR = 253, endG = 186, endB = 116;
+
+            const currentR = Math.round(startR + (endR - startR) * percentY);
+            const currentG = Math.round(startG + (endG - startG) * percentY);
+            const currentB = Math.round(startB + (endB - startB) * percentY);
+
+            const newColor = `rgba(${currentR}, ${currentG}, ${currentB}, 0.35)`;
+
+            requestAnimationFrame(() => {
+                advGlow.style.left = `${x}px`;
+                advGlow.style.top = `${y}px`;
+                advGlow.style.background = `radial-gradient(circle, ${newColor} 0%, transparent 70%)`;
+            });
+        });
+
+        advSection.addEventListener('mouseenter', () => {
+            advGlow.style.opacity = '1';
+        });
+
+        advSection.addEventListener('mouseleave', () => {
+            advGlow.style.opacity = '0';
+        });
+    }
+
     console.log('App initialized');
 });

@@ -740,8 +740,91 @@ img {
     font-weight: 700;
 }
 
-.comparison-item p {
-    color: var(--gray-700);
-    font-size: 1rem;
-    line-height: 1.6;
+/* --- Buying Business Section --- */
+#buying-business {
+    background-color: var(--blue-900);
+    /* Dark Background */
+    color: white;
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+}
+
+#buying-business .section-title {
+    color: white;
+    margin-bottom: var(--spacing-sm);
+    font-size: 2.5rem;
+}
+
+#buying-business .section-text {
+    color: var(--gray-300);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.max-w-800 {
+    max-width: 800px;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Circles Layout */
+.circles-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.circle-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange-500);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.circle-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.circle-item.small {
+    width: 80px;
+    height: 80px;
+}
+
+.circle-item.small i {
+    font-size: 2rem;
+}
+
+.circle-item.medium {
+    width: 110px;
+    height: 110px;
+}
+
+.circle-item.medium i {
+    font-size: 2.5rem;
+}
+
+.circle-item.large {
+    width: 150px;
+    height: 150px;
+    background-color: var(--orange-500);
+    /* Accent the main one */
+    color: white;
+    box-shadow: 0 10px 30px rgba(255, 103, 1, 0.3);
+    border: none;
+}
+
+.circle-item.large i {
+    font-size: 4rem;
 }

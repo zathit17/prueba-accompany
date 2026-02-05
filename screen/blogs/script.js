@@ -1,17 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('screen-action-btn');
-    const log = document.getElementById('output-log');
+    const faqItems = document.querySelectorAll('.faq-item');
 
-    if (btn && log) {
-        btn.addEventListener('click', () => {
-            const timestamp = new Date().toLocaleTimeString();
-            log.innerHTML = `> Acción ejecutada a las ${timestamp}<br>` + log.innerHTML;
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
 
-            // Simple visual feedback
-            btn.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                btn.style.transform = 'scale(1)';
-            }, 100);
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                }
+            });
+
+            // Toggle current item
+            if (isActive) {
+                item.classList.remove('active');
+                answer.style.maxHeight = null;
+            } else {
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            }
         });
-    }
+    });
 });

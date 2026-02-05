@@ -797,6 +797,132 @@ img {
     color: #fff;
 }
 
+/* --- FAQ Section --- */
+.faq-section-main {
+    background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 100%);
+    position: relative;
+    overflow: hidden;
+    color: var(--color-brand-white);
+}
+
+/* Optional: Add a subtle overlay or accent to make it "modern" */
+.faq-section-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(77, 77, 160, 0.3), transparent 70%);
+    /* var(--blue-500) semi-transparent */
+    pointer-events: none;
+}
+
+.faq-section-main h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+    color: var(--color-brand-white);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.faq-list {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Subtle border */
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    backdrop-filter: blur(10px);
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+/* Question (Button) */
+.faq-question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: var(--spacing-md) 0;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: var(--color-brand-white);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    gap: var(--spacing-sm);
+}
+
+.faq-question:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Icon */
+.faq-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background-color: var(--color-brand-white);
+    /* Default white circle */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    /* Dark arrow on white */
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+/* Active State for Icon */
+.faq-item.active .faq-icon {
+    background-color: var(--blue-500);
+    /* Purple/Blue accent when active */
+    color: white;
+    transform: rotate(180deg);
+}
+
+/* Answer (Hidden content) */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer-inner {
+    padding-bottom: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    /* Avoid overlapping icon space */
+    color: rgba(255, 255, 255, 0.7);
+    /* Subtle text color */
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .faq-question {
+        font-size: 1rem;
+    }
+
+    .faq-section-main h2 {
+        font-size: 1.8rem;
+    }
+
+    .faq-list {
+        padding: var(--spacing-sm);
+    }
+}
+
 .circle-item.small {
     width: 80px;
     height: 80px;

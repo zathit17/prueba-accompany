@@ -711,3 +711,37 @@ img {
         order: -1;
     }
 }
+
+/* --- Comparison / Branch Section --- */
+.comparison-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.comparison-item {
+    background: #fff;
+    border-left: 4px solid var(--orange-500);
+    padding: var(--spacing-md);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.comparison-item:hover {
+    transform: translateY(-5px);
+}
+
+.comparison-item h3 {
+    font-size: 1.1rem;
+    color: var(--blue-900);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 700;
+}
+
+.comparison-item p {
+    color: var(--gray-700);
+    font-size: 1rem;
+    line-height: 1.6;
+}

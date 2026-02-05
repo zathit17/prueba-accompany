@@ -394,6 +394,26 @@ img {
     font-weight: 700;
 }
 
+/* --- Business Section --- */
+#business {
+    background-color: var(--blue-900);
+    color: var(--gray-100);
+}
+
+#business .section-title {
+    color: var(--orange-500);
+}
+
+#business .section-text {
+    color: var(--gray-100);
+}
+
+#business .section-text strong {
+    color: white;
+    /* Make bold text pop */
+}
+
+
 .relative-container {
     position: relative;
     overflow: hidden;
@@ -551,6 +571,8 @@ img {
     padding: var(--spacing-md);
     text-align: left;
     border-bottom: 1px solid var(--gray-200);
+    color: var(--gray-700);
+    /* Ensure text is visible on white bg */
 }
 
 .steps-table th {
